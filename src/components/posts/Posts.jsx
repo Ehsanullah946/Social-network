@@ -1,7 +1,7 @@
 import { makeRequest } from "../../axios";
+import { useQuery } from "@tanstack/react-query";
 import Post from "../post/Post";
 import "./posts.scss";
-import { useQuery } from "@tanstack/react-query";
 // import makeRequest from "."
 
 
