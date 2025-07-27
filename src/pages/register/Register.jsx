@@ -5,11 +5,11 @@ import axios from "axios";
 
 const Register = () => {
   const [inputs, setInputs] = useState({
-    username:"",
-    email:"",
-    password:"",
-    name:""
-  })
+    username: "",
+    email: "",
+    password: "",
+    name: ""
+  });
   const [err, setError] = useState(null)
 
   const handleChange = (e) => {
@@ -32,7 +32,7 @@ const Register = () => {
     <div className="register">
       <div className="card">
         <div className="left">
-          <h1>Lama Social.</h1>
+          <h1>Social network.</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
             alias totam numquam ipsa exercitationem dignissimos, error nam,

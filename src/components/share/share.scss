@@ -15,9 +15,12 @@
       .top {
         display: flex;
         align-items: center;
-        gap: 20px;
-        img {
-          width: 40px;
+       justify-content: space-between;
+       .left{
+        display: flex;
+        align-items: center;
+         img {
+           width: 40px;
           height: 40px;
           border-radius: 50%;
           object-fit: cover;
@@ -31,6 +34,15 @@
           width: 60%;
           color: themed("textColor");
         }
+      }
+      .right{
+        .file{
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+        }
+
+      }
       }
 
       hr {
