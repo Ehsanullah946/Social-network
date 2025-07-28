@@ -40,7 +40,7 @@ const Share = () => {
 
 const handleChange = (e) => {
   setDesc(e.target.value);
-// set text input value
+
   };
   const handleFileChange = (e) => {
   setFile(e.target.files?.[0]);
