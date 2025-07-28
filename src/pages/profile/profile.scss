@@ -49,7 +49,7 @@
         padding: 50px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        // justify-content: space-between;
         margin-bottom: 20px;
 
         @include mobile{
@@ -79,6 +79,7 @@
           flex-direction: column;
           align-items: center;
           gap: 10px;
+          margin-right: 10px;
 
           span {
             font-size: 30px;

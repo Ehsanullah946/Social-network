@@ -5,13 +5,13 @@ import "./posts.scss";
 // import makeRequest from "."
 
 
-const Posts = () => {
+const Posts = ({userId}) => {
   //TEMPORARY
 
 const { isLoading, error, data } = useQuery({
   queryKey: ["posts"],
   queryFn: async () => {
-    const res = await makeRequest.get("/posts");
+    const res = await makeRequest.get("/posts?userId="+userId);
     return res.data;
   },
 });
