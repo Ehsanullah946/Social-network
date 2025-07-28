@@ -12,14 +12,17 @@ import Posts from "../../components/posts/Posts"
 import { useMutation, useQueryClient,useQuery } from '@tanstack/react-query';
 import { makeRequest } from "../../axios";
 import { useLocation } from "react-router-dom";
-import {  useContext } from "react";
+import {  useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
+import Update from "../../components/update/Update";
 
 
 const Profile = () => {
 
   const { currentUser } = useContext(AuthContext);
-    const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
+  
+  const [openUpdate, setOpenUpdate]=useState(false)
 
   const userId = parseInt(useLocation().pathname.split("/")[2]);
 
@@ -30,9 +33,6 @@ const Profile = () => {
     return res.data;
     },
   });
-
-
-
 
   const {isLoading:rIsLoading,  data:relationshipsData } = useQuery({
   queryKey: ["relationship"],
@@ -65,12 +65,12 @@ const Profile = () => {
     <div className="profile">
       <div className="images">
         <img
-          src={data?.coverPic}
+          src={"/uploads/"+data?.coverPic}
           alt=""
           className="cover"
         />
         <img
-          src={data?.profilePic}
+          src={"/uploads/"+data?.profilePic}
           alt="profile image"
           className="profilePic"
         />
@@ -106,7 +106,7 @@ const Profile = () => {
                 <span>{data?.website}</span>
               </div>
             </div>
-            {rIsLoading ? "loading": userId === currentUser.id ? <button>update</button> :
+            {rIsLoading ? "loading": userId === currentUser.id ? <button onClick={()=>setOpenUpdate(true)}>update</button> :
               <button onClick={handleFollowing}>{relationshipsData.includes(currentUser.id) ? "following" : "follow"}</button>}
           </div>
           <div className="right">
@@ -116,6 +116,7 @@ const Profile = () => {
         </div>
         <Posts userId={userId} />
       </div>
+      {openUpdate && <Update setOpenUpdate={setOpenUpdate} user={data} />}
     </div>
   );
 };
