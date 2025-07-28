@@ -16,9 +16,6 @@ const { isLoading, error, data } = useQuery({
   },
 });
 
-console.log("Data:", data);
-console.log("Error:", error);
-
   
   return <div className="posts">
     {error? "Something went wrong" : (isLoading? "loading.." : data.map(post=>(
